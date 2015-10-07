@@ -1,5 +1,6 @@
 //your code here
 NormalParticle[] particles;
+NormalParticle ayy;
 
 void setup(){
   size(500,500);
@@ -8,38 +9,46 @@ void setup(){
   for (int b = 0; b < particles.length; b++) {
   particles[b] = new NormalParticle(250,250);
   }
+  
+//  ayy = new particles(250,250);
 }
 	//your code here
 
 void draw()
 {
-  //particles[b].show;
+  for(int i = 0; i < particles.length; i++){
+ particles[i].show;
+ particles[i].move;
+  }
 	//your code here
 }
 class NormalParticle
 {
-   double x, y, Angle; 
-  int Color, Speed;
+   double x, y, angle, speed;
+   int Color;
   
   NormalParticle(int x, int y){
     
     x = 250;
     y = 250;
-    Angle = Math.random()*2*Math.PI;
+    angle = Math.random()*2*Math.PI;
+    speed = 8.25;
+    
     //Color = (255);
     
-  
   }
   
-  void show(){
+  public void show(){
+    
   fill(0,255,0);
-    ellipse(250,250,30,30);
+    ellipse((float)x,(float)y,30,30);
   }
   
-  void move(){
+  public void move(){
   
    // x = ((float)x, (float)
-    
+    x = x + Math.cos(angle)*speed;
+    y = y + Math.sin(angle)*speed;
   
   }
 	//your code here
