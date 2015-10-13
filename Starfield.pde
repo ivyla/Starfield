@@ -3,7 +3,7 @@ PImage b;
 NormalParticle[] particles;
 NormalParticle ayy;
 OddballParticle[] oddies;
-
+JumboParticle[] biggies;
 void setup(){
   size(500,500);
   background(0);
@@ -15,6 +15,12 @@ void setup(){
   oddies = new OddballParticle[100];
   for(int c = 0; c < oddies.length; c++){
   oddies[c] = new OddballParticle();
+  }
+  
+  biggies = new JumboParticle[100];
+  for(int d = 0; d < biggies.length; d++){
+    biggies[d] = new JumboParticle();
+  
   }
 //  b = loadImage("http://i.ytimg.com/vi/II4rlQY8f8s/maxresdefault.jpg");
   
@@ -30,7 +36,11 @@ void draw()
  
  oddies[i].show();
  oddies[i].move();
+ 
+ biggies[i].show();
+ biggies[i].move();
   }
+  noStroke();
       fill(0,0,0,70);
     rect(0,0,500,500);
   //your code here
@@ -45,18 +55,18 @@ class NormalParticle
     x = 250;
     y = 250;
     angle = Math.random()*3*Math.PI;
-    speed = Math.random()*2.25+1;
-    r = (int)(Math.random()*255)+255;
+    speed = Math.random()*4.25+1;
+    r = (int)(Math.random()*255)+155;
     g = (int)(Math.random()*255)+10;
-    b = (int)(Math.random()*255)+250;
+    b = (int)(Math.random()*255)+130;
     //Color = (255);
     
   }
   
   public void show(){
     noStroke();
-  fill(255,30,34);
-   ellipse((float)x,(float)y,10,10);
+  fill(r,g,b);
+   ellipse((float)x,(float)y,8,8);
 //image(b, (float)x, (float)y, 100,100);  
 }
   
@@ -86,7 +96,7 @@ class OddballParticle implements Particle //uses an interface
     oddX = 250;
     oddY = 250;
     oddAngle = Math.random()*10*Math.PI;
-    oddSpeed = Math.random()*1.50+1;
+    oddSpeed = Math.random()*1.50+0.50;
     r = (int)(Math.random()*255)+255;
     g = (int)(Math.random()*255)+10;
     b = 100; //(int)(Math.random()*255);
@@ -103,8 +113,8 @@ class OddballParticle implements Particle //uses an interface
   public void show(){
   
       noStroke();
-  fill(r,195,b);
-   ellipse((float)oddX,(float)oddY,5,5);
+  fill(r,g,b);
+   ellipse((float)oddX,(float)oddY,7,10);
    
   }
   
@@ -115,8 +125,22 @@ class OddballParticle implements Particle //uses an interface
     
   }
 }
-class JumboParticle //uses inheritance
+class JumboParticle extends NormalParticle//uses inheritance
 {
+  JumboParticle(){
+//      x = 250;
+//    y = 250;
+//    angle = Math.random()*3*Math.PI;
+//    speed = Math.random()*2.25+1;
+    r = (int)(Math.random()*255)+255;
+//    g = (int)(Math.random()*255)+10;
+    b = (int)(Math.random()*255)+150;
+  }
   //your code here
+  public void show(){
+        noStroke();//stroke(255,0,0);
+  fill(255);
+   ellipse((float)x,(float)y,15,15);
+  }
 }
 
