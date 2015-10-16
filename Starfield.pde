@@ -123,7 +123,7 @@ class OddballParticle implements Particle //uses an interface
     //      b -= 20;
     //    }
   }
-}
+
 
 public void show() {
 
@@ -144,6 +144,8 @@ public void restart() {
     x = 350;
     y = 350;
   }
+}
+
 }
 class JumboParticle extends NormalParticle//uses inheritance
 {
