@@ -61,7 +61,7 @@ class NormalParticle
     x = 250;
     y = 250;
     angle = Math.random()*3*Math.PI;
-    speed = Math.random()*4.25+1;
+    speed = Math.random()*4.25;
     r = (int)(Math.random()*255)+155;
     g = (int)(Math.random()*255)+10;
     b = (int)(Math.random()*255)+130;
@@ -82,13 +82,21 @@ class NormalParticle
     x = x + Math.cos(angle)*speed;
     y = y + Math.sin(angle)*speed;
   }
+  
+ void newSpeed(){
+      speed = Math.random()*4.25;
+  
+  }
 
 
  public void restart(){
  
    if(x > 1200 || x < -1200 || y > 1200 || y < -1200){
-	   x = 350;
-	   y = 350;
+	   x = 250;
+	   y = 250;
+newSpeed();
+
+
    }
 }
 }
@@ -100,6 +108,7 @@ interface Particle
   public void show();
   public void move();
   public void restart();
+  //public void newSpeed();
   //your code here
 }
 class OddballParticle implements Particle //uses an interface
@@ -137,12 +146,17 @@ public void move() {
   x = x + Math.cos(oddAngle)*oddSpeed;
   y = y + Math.sin(oddAngle)*oddSpeed;
 }
-
+ void newSpeed(){
+      oddSpeed = Math.random()*4.25;
+  
+  }
 public void restart() {
 
   if (x > 1200 || x < -1200 || y > 1200 || y < -1200) {
-    x = 350;
-    y = 350;
+    x = 250;
+    y = 250;
+    
+    newSpeed();
   }
 }
 
@@ -165,13 +179,14 @@ class JumboParticle extends NormalParticle//uses inheritance
     ellipse((float)x, (float)y, 15, 15);
   }
 
-  //   public void restart(){
-  // 
-  //   if(x > 1200 || x < -1200 || y > 1200 || y < -1200){
-  //   x = 350;
-  //   y = 350;
-  //   
-  //   }
+     public void restart(){
+   
+     if(x > 1200 || x < -1200 || y > 1200 || y < -1200){
+     x = 250;
+     y = 250;
+     newSpeed();
+     
+     }
 
-}
+}}
 
