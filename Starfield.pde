@@ -38,11 +38,11 @@ void draw()
 
     oddies[i].show();
     oddies[i].move();
-  //  oddies[i].restart();
+    oddies[i].restart();
 
     biggies[i].show();
     biggies[i].move();
-//    biggies[i].restart();
+  biggies[i].restart();
   }
 
 
@@ -61,7 +61,7 @@ class NormalParticle
     x = 250;
     y = 250;
     angle = Math.random()*3*Math.PI;
-    speed = Math.random()*4.25;
+    speed = Math.random()*1.25;
     r = (int)(Math.random()*255)+155;
     g = (int)(Math.random()*255)+10;
     b = (int)(Math.random()*255)+130;
@@ -84,14 +84,14 @@ class NormalParticle
   }
   
  void newSpeed(){
-      speed = Math.random()*4.25;
+      speed = Math.random()*1.25;
   
   }
 
 
  public void restart(){
  
-   if(x > 1200 || x < -1200 || y > 1200 || y < -1200){
+   if(x > 1000 || x < -1000 || y > 1000 || y < -1000){
 	   x = 250;
 	   y = 250;
 newSpeed();
@@ -121,7 +121,7 @@ class OddballParticle implements Particle //uses an interface
     x = 250;
     y = 250;
     oddAngle = Math.random()*10*Math.PI;
-    oddSpeed = Math.random()*1.50+0.50;
+    oddSpeed = Math.random()*1.50-.50;
     r = (int)(Math.random()*255)+255;
     g = (int)(Math.random()*255)+10;
     b = 100; //(int)(Math.random()*255);
@@ -147,12 +147,12 @@ public void move() {
   y = y + Math.sin(oddAngle)*oddSpeed;
 }
  void newSpeed(){
-      oddSpeed = Math.random()*4.25;
+      oddSpeed = 1.50;
   
   }
 public void restart() {
 
-  if (x > 1200 || x < -1200 || y > 1200 || y < -1200) {
+  if (x > 1000 || x < -1000 || y > 1000 || y < -1000) {
     x = 250;
     y = 250;
     
@@ -167,7 +167,7 @@ class JumboParticle extends NormalParticle//uses inheritance
     //      x = 250;
     //    y = 250;
     //    angle = Math.random()*3*Math.PI;
-    //    speed = Math.random()*2.25+1;
+        speed = Math.random()*1.25;
     r = (int)(Math.random()*255)+255;
     //    g = (int)(Math.random()*255)+10;
     b = (int)(Math.random()*255)+150;
@@ -181,7 +181,7 @@ class JumboParticle extends NormalParticle//uses inheritance
 
      public void restart(){
    
-     if(x > 1200 || x < -1200 || y > 1200 || y < -1200){
+     if(x > 1000 || x < -1000 || y > 1000 || y < -1000){
      x = 250;
      y = 250;
      newSpeed();
