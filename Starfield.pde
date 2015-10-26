@@ -10,19 +10,26 @@ void setup() {
   size(500, 500);
   background(0);
   particles = new NormalParticle[100];
-  for (int b = 0; b < particles.length; b++) {
+   biggies = new JumboParticle[100];
+   oddies = new OddballParticle[100];
+    for (int b = 0; b < particles.length; b++) {
     particles[b] = new NormalParticle();
+    oddies[b] = new OddballParticle();
+    biggies[b] = new JumboParticle();
   }
-
-  oddies = new OddballParticle[100];
-  for (int c = 0; c < oddies.length; c++) {
-    oddies[c] = new OddballParticle();
-  }
-
-  biggies = new JumboParticle[100];
-  for (int d = 0; d < biggies.length; d++) {
-    biggies[d] = new JumboParticle();
-  }
+//  for (int b = 0; b < particles.length; b++) {
+//    particles[b] = new NormalParticle();
+//  }
+//
+//  oddies = new OddballParticle[100];
+//  for (int c = 0; c < oddies.length; c++) {
+//    oddies[c] = new OddballParticle();
+//  }
+//
+//  biggies = new JumboParticle[100];
+//  for (int d = 0; d < biggies.length; d++) {
+//    biggies[d] = new JumboParticle();
+//  }
   //  b = loadImage("http://i.ytimg.com/vi/II4rlQY8f8s/maxresdefault.jpg");
 
   //  ayy = new particles(250,250);
