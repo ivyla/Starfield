@@ -1,22 +1,26 @@
 //your code here
-PImage b;
-NormalParticle[] particles;
-NormalParticle ayy;
-OddballParticle[] oddies;
-JumboParticle[] biggies;
+//PImage b;
+Particle[] particles;
+//NormalParticle ayy;
+//OddballParticle[] oddies;
+//JumboParticle[] biggies;
 
 
 void setup() {
   size(500, 500);
   background(0);
-  particles = new NormalParticle[100];
-   biggies = new JumboParticle[100];
-   oddies = new OddballParticle[100];
+  particles = new Particle[300];
+//   biggies = new JumboParticle[100];
+//   oddies = new OddballParticle[100];
     for (int b = 0; b < particles.length; b++) {
     particles[b] = new NormalParticle();
-    oddies[b] = new OddballParticle();
-    biggies[b] = new JumboParticle();
-  }
+
+  
+  
+
+    }
+    particles[2] = new OddballParticle();
+particles[50] = new JumboParticle();
 //  for (int b = 0; b < particles.length; b++) {
 //    particles[b] = new NormalParticle();
 //  }
@@ -39,17 +43,21 @@ void setup() {
 void draw()
 {
   for (int i = 0; i < particles.length; i++) {
+//    particles[i].show();
+//    particles[i].move();
+//    particles[i].restart();
+//
+//    oddies[i].show();
+//    oddies[i].move();
+//    oddies[i].restart();
+//
+//    biggies[i].show();
+//    biggies[i].move();
+//  biggies[i].restart();
+
     particles[i].show();
     particles[i].move();
-    particles[i].restart();
-
-    oddies[i].show();
-    oddies[i].move();
-    oddies[i].restart();
-
-    biggies[i].show();
-    biggies[i].move();
-  biggies[i].restart();
+  particles[i].restart();
   }
 
 
@@ -58,7 +66,7 @@ void draw()
   rect(0, 0, 500, 500);
   //your code here
 }
-class NormalParticle
+class NormalParticle implements Particle
 {
   double x, y, angle, speed;
   int r, g, b;
@@ -145,7 +153,7 @@ public void show() {
 
   noStroke();
   fill(r, g, b);
-  ellipse((float)x, (float)y, 7, 6);
+  rect((float)x, (float)y, 50, 50);
 }
 
 public void move() {
@@ -183,7 +191,7 @@ class JumboParticle extends NormalParticle//uses inheritance
   public void show() {
     noStroke();//stroke(255,0,0);
     fill(255);
-    ellipse((float)x, (float)y, 15, 15);
+    ellipse((float)x, (float)y, 30, 30);
   }
 
      public void restart(){
